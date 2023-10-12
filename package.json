@@ -1,0 +1,18 @@
+{
+  "name": "web-timer-pwa",
+  "version": "1.0.0",
+  "description": "Streaming on your schedule.",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -c-1 -p 3000"
+  },
+  "keywords": [
+    "pwa"
+  ],
+  "author": "DS",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "0.10.0"
+  },
+  "lockfileVersion": 1
+}

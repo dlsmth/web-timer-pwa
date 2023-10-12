@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+
+    <title>Web Timer PWA</title>
+
+    <!-- General CSS -->
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/src/css/app.css" />
+
+    <!-- General JS -->
+
+    <script src="/src/js/app.js" defer></script>
+
+
+    <!-- Manifest -->
+
+    <link rel="manifest" href="/manifest.json" media="all" type="text/css">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Web Timer PWA">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-57x57.png" sizes="57x57">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-60x60.png" sizes="60x60">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-72x72.png" sizes="72x72">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-76x76.png" sizes="76x76">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-114x114.png" sizes="114x114">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-120x120.png" sizes="120x120">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-144x144.png" sizes="144x144">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-152x152.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-180x180.png" sizes="180x180">
+    <meta name="msapplication-TileImage" content="/src/images/icons/app-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#fff">
+    <meta name="theme-color" content="#333">
+    <link rel="apple-touch-icon" sizes="180x180" href="/src/images/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/src/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/src/images/icons/favicon-16x16.png">
+
+  </head>
+
+  <body>
+    <div
+      id="content"
+      class="container col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-4"
+    >
+      <header class="mt-5 mb-4">
+        <h1 class="mode-class">Web Timer PWA</h1>
+        <h2 class="mode-class">Streaming on your schedule</h2>
+      </header>
+
+      <main>
+        <!-- Input Area -->
+
+        <div id="input-area">
+          <div id="web-address-area" class="mx-3 mt-2 mb-2">
+            <label for="website-url" class="form-label mode-class">Web address</label>
+            <div class="input-group mb-2">
+              <input
+                type="text"
+                id="website-url"
+                class="form-control"
+                aria-label="Text input with dropdown button"
+                placeholder="www.website.com"
+              />
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Recent
+              </button>
+              <ul id="dropdown-ul" class="dropdown-menu dropdown-menu-end">
+              </ul>
+            </div>
+          </div>
+
+          <div
+            id="url-error-message"
+            class="mx-3 mb-2"
+            style="color: #ff0000; font-size: 0.8em"
+          >
+            <p>Error message</p>
+          </div>
+        </div>
+
+        <!-- Suggestions Area -->
+
+        <div id="suggestions" class="m-3">
+          <div>
+            <p class="mode-class">Need some <a href="#" id="suggestions-link" class="mode-class">suggestions?</a></p>
+          </div>
+        </div>
+
+        <!-- Quick Start Area -->
+
+        <div id="quick-start-area" class="m-3">
+          <button id="quick-start-btn1" value="30" type="button" class="btn btn-primary quick-start-btn">
+            30 mins
+          </button>
+          <button id="quick-start-btn2" value="60" type="button" class="btn btn-primary quick-start-btn">
+            1 hour
+          </button>
+          <button id="quick-start-btn3" value="120" type="button" class="btn btn-primary quick-start-btn">
+            2 hours
+          </button>
+        </div>
+
+        <!-- Time Picker Area -->
+
+        <div id="picker-area" class="mt-5">
+          <div class="mx-3 mt-3 mb-2">
+            <div class="btn-group btn-block dropdown d-grid gap-2">
+              <button
+                class="btn btn-block btn-secondary dropdown-toggle"
+                type="button"
+                id="chooseTimeBtn"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Choose time
+              </button>
+              <ul
+                id="timeOptions"
+                class="dropdown-menu btn-block"
+                aria-labelledby="chooseTimeBtn"
+              >
+                <li data-value="5">
+                  <a class="dropdown-item" href="#">5 mins</a>
+                </li>
+                <li data-value="10">
+                  <a class="dropdown-item" href="#">10 mins</a>
+                </li>
+                <li data-value="15">
+                  <a class="dropdown-item" href="#">15 mins</a>
+                </li>
+                <li data-value="30">
+                  <a class="dropdown-item" href="#">30 mins</a>
+                </li>
+                <li data-value="45">
+                  <a class="dropdown-item" href="#">45 mins</a>
+                </li>
+                <li data-value="60">
+                  <a class="dropdown-item" href="#">1 hour</a>
+                </li>
+                <li data-value="90">
+                  <a class="dropdown-item" href="#">1 1/2 hours</a>
+                </li>
+                <li data-value="120">
+                  <a class="dropdown-item" href="#">2 hours</a>
+                </li>
+                <li data-value="180">
+                  <a class="dropdown-item" href="#">3 hours</a>
+                </li>
+              </ul>
+            </div>
+            <div
+              id="time-error-message"
+              class="mt-2"
+              style="color: #ff0000; font-size: 0.8em"
+            >
+              <p>Error message</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Start Button -->
+
+        <div id="start-button-area" class="m-3 my-4 d-grid gap-2">
+          <button
+            id="start-timer-btn"
+            type="button"
+            class="btn btn-primary btn-lg"
+          >
+            Start timer
+          </button>
+        </div>
+
+        <!-- Bottom Area -->
+
+        <div id="bottom-area" class="">
+          <div id="dark-mode-area" class="m-3 mt-5">
+            <div id="dm-label" class="dml1 mode-class">Dark mode</div>
+            <div id="dm-toggle" class="form-check form-switch">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="flexSwitchCheckChecked"
+                checked
+              />
+            </div>
+          </div>
+          <div id="learn-more-area" class="fixed-bottom mb-3">
+            <p class="mode-class">
+              <a href="#" id="learn-more-link" class="mode-class">Learn more</a> about Web Timer
+            </p>
+          </div>
+        </div>
+      </main>
+
+      <!-- Learn More Modal -->
+      <div
+        class="container col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-4"
+      >
+        <div id="learn-more-modal" class="p-3">
+          <div>
+            <button
+              id="lm-close-btn"
+              type="button"
+              class="btn-close d-flex"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="m-3">
+            <h1 style="color: #333333">Web Timer</h1>
+            <p style="color: #333333">
+              I created <i>Web Timer</i> to allow fans of streaming radio the
+              option of listening with a timer. Whether studying, cooking or
+              falling asleep, just enter a website, choose how long you'd like
+              to listen and start listening. <i>Web Timer</i> will end the
+              stream when time's up, letting you focus on other things.
+            </p>
+            <p style="color: #333333">Curious where to start? Try these:</p>
+            <p id="suggestion-link-1" style="color: #333333" name="www.kusc.org">
+              <span class="suggestions-link">www.kusc.org</span><br />KUSC | Los Angeles Classical Music
+            </p>
+            <p id="suggestion-link-2" style="color: #333333" value="www.kcrw.org">
+              <span class="suggestions-link">www.wnyc.org/streams/</span><br />WNYC | New York Public Radio
+            </p>
+            <p id="suggestion-link-3" style="color: #333333" value="www.bbc.co.uk/sounds/play/live:bbc_world_service">
+              <span class="suggestions-link">www.bbc.co.uk/sounds/</span><br />BBC World Service | News, Politics, Arts &
+              Culture programming
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session Modal -->
+
+      <div
+        class="container col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-4"
+      >
+        <div id="session-modal" class="p-3">
+          <div id="session-close">
+            <button
+              id="s-close-btn"
+              type="button"
+              class="btn-close d-flex"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div id="session-countdown">
+            <h1 id="session-modal-title" style="color: #333333"></h1>
+          </div>
+          <div class="mt-5">
+            <div><hr /></div>
+            <div>
+              <iframe id="session-iframe"></iframe>
+            </div>
+
+          <!-- <div id="session-modal-url">
+            <p style="color: #333333">url:</p>
+          </div>
+          <div id="session-modal-time">
+            <p style="color: #333333">time:</p>
+          </div> -->
+          </div>
+        </div>
+      </div>
+
+      <footer></footer>
+    </div>
+
+    <!-- jQuery JS -->
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Popper and Bootstrap JS -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+      integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+      integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
