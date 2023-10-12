@@ -11,6 +11,6 @@ https://www.dlsmth.dev/webtimer
 
 Web Timer PWA Screenshots:
 
-![web-timer-pwa screenshot](https://www.dalesmith.com/temp/web-timer-pwa_screenshot.png)
+![web-timer-pwa screenshot](https://www.dalesmith.com/temp/webtimerpwa_screenshot.png)
  
 [View Demo](https://www.dlsmth.dev/webtimer)
